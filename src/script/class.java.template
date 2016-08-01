@@ -1,0 +1,12 @@
+package jianye.algorithm;
+
+import java.util.*;
+
+public class %CLASS% {
+
+    /** No arguments constructor. */
+    public %CLASS%() {
+
+    }
+
+}
