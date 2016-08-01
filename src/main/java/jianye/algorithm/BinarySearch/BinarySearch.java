@@ -28,7 +28,8 @@ solution:
 */
 
 
-package jianye.algorithm;
+package jianye.algorithm.BinarySearch;
+
 
 import java.util.*;
 

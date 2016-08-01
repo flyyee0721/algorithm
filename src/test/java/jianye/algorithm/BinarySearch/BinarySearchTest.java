@@ -1,4 +1,5 @@
-package jianye.algorithm;
+
+package jianye.algorithm.BinarySearch;
 
 import java.util.*;
 import org.testng.Assert;

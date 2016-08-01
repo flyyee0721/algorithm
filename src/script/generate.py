@@ -2,7 +2,6 @@ import os
 import sys;
 
 script, title = sys.argv
-
 try:
     #Write source code to file
     dirname=os.path.dirname(os.path.realpath(sys.argv[0]))
@@ -17,6 +16,8 @@ try:
     analysis_template_content = analysis_template.read();
     analysis_template.close()
     src_file_handle.write("\n" + analysis_template_content + "\n")
+
+    src_file_handle.write("\n" + "package jianye.algorithm." + title + ";\n")
     class_template = open(dirname + "/class.java.template", "r")
     class_template_content = class_template.read();
     class_template.close()
@@ -26,13 +27,14 @@ try:
     print "Generate question for " + title + " at " + src_directory
 
 #write test code to file
-    test_directory = dirname + "/../test/java/jianye/leetcode/" + title
+    test_directory = dirname + "/../test/java/jianye/algorithm/" + title
     if not os.path.exists(test_directory):
         os.makedirs(test_directory)
     test_filename = test_directory + "/" + title + "Test.java"
     if os.path.exists(test_filename):
         os.remove(test_filename);
     test_file_handle = open(test_filename, "wb")
+    test_file_handle.write("\n" + "package jianye.algorithm." + title + ";\n")
     test_template = open(dirname + "/unit_test.java.template", "r")
     test_template_content = test_template.read()
     test_template.close()
