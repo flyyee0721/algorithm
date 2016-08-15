@@ -112,20 +112,30 @@ public class LinkedListTest {
         linkedList.insert(303);
         linkedList.insert(133);
         System.out.println("Before reverse: " + linkedList.toString());
+        System.out.println("Before reverse, reverse print is : " + linkedList.reverseToString());
+        System.out.println("Before reverse, reverse print is : " + linkedList.reverseToStringStack());
         linkedList.reverse();
         System.out.println("After reverse: " + linkedList.toString());
+        System.out.println("After reverse, reverse print is : " + linkedList.reverseToString());
+        System.out.println("After reverse, reverse print is : " + linkedList.reverseToStringStack());
         linkedList.remove(12);
         linkedList.remove(121);
         linkedList.remove(33);
         linkedList.remove(331);
         System.out.println("After remove: " + linkedList.toString());
+        System.out.println("Before reverse, reverse print is : " + linkedList.reverseToString());
+        System.out.println("Before reverse, reverse print is : " + linkedList.reverseToStringStack());
         linkedList.reverse();
         System.out.println("After reverse: " + linkedList.toString());
         linkedList.remove(133);
+        System.out.println("Before reverse, reverse print is : " + linkedList.reverseToString());
+        System.out.println("Before reverse, reverse print is : " + linkedList.reverseToStringStack());
         linkedList.reverse();
         System.out.println("After reverse: " + linkedList.toString());
         linkedList.remove(303);
         System.out.println("After remove: " + linkedList.toString());
+        System.out.println("Before reverse, reverse print is : " + linkedList.reverseToString());
+        System.out.println("Before reverse, reverse print is : " + linkedList.reverseToStringStack());
         linkedList.reverse();
         System.out.println("After reverse: " + linkedList.toString());
     }
@@ -165,6 +175,23 @@ public class LinkedListTest {
     public void testFindKthFromTailEmptyInput() throws Exception {
         if (null == linkedList.findKthFromTail(3)) {
             System.out.println("3rd element does not exist!");
+        }
+    }
+    @Test
+    public void testFindKthFromTailTwoPointer() throws Exception {
+        linkedList.insert(12);
+        linkedList.insert(33);
+        linkedList.insert(331);
+        linkedList.insert(303);
+        linkedList.insert(133);
+        System.out.println("The linkelist contains " + linkedList.toString());
+        System.out.println("1st from the tail is " + linkedList.findKthFromTailTwoPointer(1));
+        System.out.println("2nd from the tail is " + linkedList.findKthFromTailTwoPointer(2));
+        System.out.println("3rd from the tail is " + linkedList.findKthFromTailTwoPointer(3));
+        System.out.println("4th from the tail is " + linkedList.findKthFromTailTwoPointer(4));
+        System.out.println("5th from the tail is " + linkedList.findKthFromTailTwoPointer(5));
+        if (linkedList.findKthFromTailTwoPointer(6) == null) {
+            System.out.println("6th element doesnt exist!");
         }
     }
 }

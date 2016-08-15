@@ -190,8 +190,21 @@ public class LinkedList<Value> {
         if (k <= 0) {
             throw new IllegalArgumentException("Input needs to be positive.");
         }
-        return null;
-
+        ListNode first =  head;
+        ListNode second = head;
+        int i = k;
+        //Move the second pointer to
+        while(--i > 0 && second != null) {
+            second = second.next;
+        }
+        if (null == second) {
+            return null;
+        }
+        while(second.next != null)  {
+            first = first.next;
+            second = second.next;
+        }
+        return first.value;
     }
 
     @Override
@@ -203,6 +216,54 @@ public class LinkedList<Value> {
             runner = runner.next;
         }
         return out;
+    }
+
+    /*public Value findMiddle() {
+        ListNode fast = head;
+        ListNode slow = head;
+        if (head == null || head.next == null) {
+            return head.value;
+        }
+        while () {
+            slow = slow.next;
+            fast = fast.next;
+        }
+    }
+    public Value findMiddleBruteForce() {
+        int size = 0;
+        ListNode runner = head;
+        while(head != null) {
+            size++;
+            runner = runner.next;
+        }
+        int middle = size/2;
+        while(middle > 0) {
+
+        }
+    } */
+
+    public String reverseToString() {
+        Stack<Value> s = new Stack<>();
+        ListNode runner = head;
+        while(runner != null) {
+            s.push(runner.value);
+            runner = runner.next;
+        }
+        String ret = "";
+        while(!s.isEmpty()) {
+            ret += s.pop().toString() + " ";
+        }
+        return ret;
+    }
+
+    public String reverseToStringStack() {
+        //1->2->3->4->5
+        return reverseToStringHelper(head);
+    }
+
+    private String reverseToStringHelper(ListNode node) {
+        if (node == null) return "";
+        return reverseToStringHelper(node.next) + " " + node.value.toString();
     }
 }
 
