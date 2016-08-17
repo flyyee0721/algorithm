@@ -14,7 +14,7 @@ Overview:
 Solution:
 
     start with example:
-        [3, 2, 9, 11, 6] =>
+        [3, 2, 9, 11, 6] => [2, 3, 6, 9, 11]
     regular method:
         For a given value at index i, insert it into the sub array before it. array[0...i-1]
         Need to make sure the subarray is always sorted, insert makes it work.
